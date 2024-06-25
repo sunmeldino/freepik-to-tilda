@@ -25,7 +25,7 @@ app.get('/generate-image-freepik', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
-        console.error('Error fetching image:', error);
+        console.error('Error fetching image:', error.response ? error.response.data : error.message);
         res.status(500).send('Failed to generate image');
     }
 });
